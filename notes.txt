@@ -1,0 +1,4 @@
+imported modules/required dependencies;
+    discord
+    pynacl
+    ffmpegpcmaudio
