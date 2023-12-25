@@ -8,8 +8,9 @@ from torch.utils.data import DataLoader
 from torchvision import datasets
 from torchvision.transforms import ToTensor
 
+batch_size = 512
 train = datasets.MNIST(root = 'data', download = True, train = True, transform = ToTensor())
-dataset = DataLoader(train, 6144)
+dataset = DataLoader(train, batch_size)
 
 class dimir_eyes(nn.Module):
     dillon = 1
@@ -31,6 +32,7 @@ class dimir_eyes(nn.Module):
 
 class ml_learning:
     def __init__(self):
+        self.batch_size = batch_size
         # !!!Note: only train if you are prepared to restart your pc afterwards.
         # CUDA/GPU cleanup is not yet implemented.
         # Gaming after training will result in lower framerates as
@@ -112,7 +114,7 @@ class ml_learning:
         plt.plot(x,y)
         plt.xlabel('Epoch')
         plt.ylabel('Loss')
-        plt.title('Loss per epoch')
+        plt.title(f'Batch size = {self.batch_size}, using {torch.cuda.get_device_name(0)}')
         plt.savefig('traning_graph.png')
 
 
