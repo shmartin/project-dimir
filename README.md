@@ -1,1 +1,3 @@
 # Dimir
+
+AI Discord Bot
